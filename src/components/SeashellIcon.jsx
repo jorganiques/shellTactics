@@ -1,4 +1,4 @@
-// src/components/SeashellIcon.jsx
+// Start - SeashellIcon.jsx
 import React from 'react';
 import SungkaShell from '../assets/SungkaShell.png';
 
@@ -7,3 +7,5 @@ const SeashellIcon = ({ imageSrc }) => (
 );
 
 export default SeashellIcon;
+
+// Start - SeashellIcon.jsx

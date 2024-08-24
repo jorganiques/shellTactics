@@ -1,16 +1,14 @@
+// Start - RulesPage.jsx
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const RulesPage = () => {
   const location = useLocation();
 
-  // Determine the previous path
   const previousPath = location.state?.from || '/';
 
-  // useState for managing the visibility of the tips section
   const [showTips, setShowTips] = useState(false);
 
-  // Toggle the visibility of the tips section
   const toggleTips = () => {
     setShowTips(prevShowTips => !prevShowTips);
   };
@@ -35,7 +33,6 @@ const RulesPage = () => {
           <li>The game is played in a spirit of fairness, and strategies may include capturing stones from the opponent to gain an advantage.</li>
         </ul>
 
-        {/* Tips Section */}
         <button
           onClick={toggleTips}
           className="px-4 py-2 mt-4 bg-green-600 text-white rounded hover:bg-green-700"
@@ -63,3 +60,5 @@ const RulesPage = () => {
 };
 
 export default RulesPage;
+
+// End - RulesPage.jsx

@@ -1,7 +1,8 @@
+// Start - PlayerModeSelection.jsx
 import React, { useState, useEffect } from 'react';
-import { useGameDispatch } from './GameContext';
+import { useGameDispatch } from './SungkaGameContext';
 import { Link } from 'react-router-dom';
-import backgroundImage from '../assets/SungkaBackground.jpg'; // Adjust the path as needed
+import backgroundImage from '../assets/SungkaBackground.jpg';  
 
 const PlayerModeSelection = () => {
   const dispatch = useGameDispatch();
@@ -10,7 +11,6 @@ const PlayerModeSelection = () => {
   useEffect(() => {
     const fetchQuote = async () => {
       try {
-        // Use an alternative CORS proxy
         const proxyUrl = 'https://api.allorigins.win/get?url=';
         const apiUrl = 'https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en';
 
@@ -19,13 +19,10 @@ const PlayerModeSelection = () => {
           throw new Error('Network response was not ok');
         }
 
-        // Directly use the JSON response
         const data = await response.json();
 
-        // Use the raw contents directly as JSON
-        const quoteData = JSON.parse(data.contents); // This line may not be needed depending on the structure of 'data.contents'
+        const quoteData = JSON.parse(data.contents); 
 
-        // Optionally handle escaped characters if they still cause issues
         const cleanedQuote = quoteData.quoteText.replace(/\\'/g, "'"); // Fix escaped single quotes
         setQuote(`${cleanedQuote} - ${quoteData.quoteAuthor}`);
       } catch (error) {
@@ -59,13 +56,15 @@ const PlayerModeSelection = () => {
       </Link>
       <h2 className="text-3xl font-bold mb-8 text-cream">Select Player Mode</h2>
       <Link to="/one-player" onClick={() => handleModeSelect('one-player')}>
-        <button className="mb-4 p-4 bg-blue-500 text-white rounded-lg">Single Player</button>
+        <button className="mb-4 p-4 bg-blue-500 text-white rounded-lg hover:bg-blue-700">Single Player</button>
       </Link>
       <Link to="/two-players" onClick={() => handleModeSelect('two-players')}>
-        <button className="p-4 bg-green-500 text-white rounded-lg">Two Players</button>
+        <button className="p-4 bg-green-500 text-white rounded-lg hover:bg-green-700">Two Players</button>
       </Link>
     </div>
   );
 };
 
 export default PlayerModeSelection;
+
+// End - PlayerModeSelection.jsx

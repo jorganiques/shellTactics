@@ -1,7 +1,7 @@
-// src/App.jsx
+// Start - App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { GameProvider } from './components/GameContext';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { GameProvider } from './components/SungkaGameContext'; // Import from correct file
 import GameContent from './components/GameContent';
 import SungkaBoard from './components/SungkaBoard';
 import RulesPage from './components/RulesPage';
@@ -22,3 +22,7 @@ const App = () => {
 };
 
 export default App;
+
+
+
+// End - App.jsx

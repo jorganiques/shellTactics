@@ -1,15 +1,12 @@
-// src/components/GameContent.jsx
+// Start - GameContent.jsx
 import React, { useEffect } from 'react';
-import { useGameState } from './GameContext';
+import { useGameState } from './SungkaGameContext';
 import PlayerModeSelection from './PlayerModeSelection';
-import { Link } from 'react-router-dom';
-
 
 const GameContent = () => {
   const { mode } = useGameState();
 
   useEffect(() => {
-    // Any side effects based on game mode can be handled here
     console.log(`Game mode selected: ${mode}`);
   }, [mode]);
 
@@ -21,3 +18,4 @@ const GameContent = () => {
 };
 
 export default GameContent;
+// End - GameContent.jsx
